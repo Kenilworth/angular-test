@@ -1,0 +1,15 @@
+<table class="table-persons">
+  <caption>List of Persons</caption>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let person of persons">
+    <td>{{person.name}}</td>
+    <td [ngClass]="{'adult': checkOfAdult(person.age), 'underage': checkOfUnderage(person.age)}">{{person.age ? person.age : 'Unknown'}}</td>
+    <td>
+      <button class="btn" (click)="removePerson(person.id)">Remove</button>
+    </td>
+  </tr>
+</table>
